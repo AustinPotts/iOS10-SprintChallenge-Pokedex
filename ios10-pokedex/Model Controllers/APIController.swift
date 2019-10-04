@@ -66,6 +66,27 @@ class APIController {
         pokemonCollection.append(pokemon)
     }
     
+    //Creating CRUD Methods for Core Data
+    @discardableResult func createPokemon(with name: String, id: Int) -> Pokemons {
+        let pokemon = Pokemons(name: name, id: id, context: CoreDataStack.share.mainContext)
+        
+        CoreDataStack.share.saveToPersistentStore()
+        
+        return pokemon
+        
+    }
+    
+    func updatePokemon(pokemon: Pokemons, with name: String, id: Int) {
+        pokemon.name = name
+        pokemon.id = Int32(id)
+        
+        CoreDataStack.share.saveToPersistentStore()
+    }
+    
+    func delete(pokemons: Pokemons) {
+        CoreDataStack.share.mainContext.delete(pokemons)
+        CoreDataStack.share.saveToPersistentStore()
+    }
     
     
 }
