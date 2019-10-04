@@ -62,6 +62,9 @@ class APIController {
         
     }
     
+    func addSomePokemon(pokemon: Pokemon){
+        pokemonTeam.append(pokemon)
+    }
     
     
     
