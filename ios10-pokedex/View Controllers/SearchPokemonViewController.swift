@@ -71,13 +71,6 @@ class SearchPokemonViewController: UIViewController, UISearchBarDelegate {
     }
     
     
-  //In the save button, make sure you have the pokemon data. Then call the API Controller Method for adding pokemon
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let pokemonSaved = pokemon else {return}
-    //Create a function in your API Controller that adds the pokemon to your Array Var
-        apiController?.addSomePokemon(pokemon: pokemonSaved)
-        navigationController?.popToRootViewController(animated: true)
-    }
    
     
     //Create a function from the Search Bar delegate. Make sure you have the search term text. Call the API Controller method that Gets the Pokemon Data. Make sure you have the searched Pokemon with a try? model.get(). Call your main queue & make the pokemon model equal the pokemon just searched
@@ -89,6 +82,14 @@ class SearchPokemonViewController: UIViewController, UISearchBarDelegate {
                 self.pokemon = searchedForPokemon
             }
         }
+    }
+    
+    //In the save button, make sure you have the pokemon data. Then call the API Controller Method for adding pokemon
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let pokemonSaved = pokemon else {return}
+        //Create a function in your API Controller that adds the pokemon to your Array Var
+        apiController?.addSomePokemon(pokemon: pokemonSaved)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     
