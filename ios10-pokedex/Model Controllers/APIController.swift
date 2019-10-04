@@ -61,9 +61,9 @@ class APIController {
         }.resume()
         
     }
-    
+    //This function will append the pokemon to the array storage [Pokemon]
     func addSomePokemon(pokemon: Pokemon){
-        pokemonTeam.append(pokemon)
+        pokemonCollection.append(pokemon)
     }
     
     

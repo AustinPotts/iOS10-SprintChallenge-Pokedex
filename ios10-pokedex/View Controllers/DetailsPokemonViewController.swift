@@ -12,11 +12,22 @@ class DetailsPokemonViewController: UIViewController {
 
     
     
+    
+    
     @IBOutlet weak var pokemonImage: UIImageView!
     
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonTypeLabel: UILabel!
     @IBOutlet weak var pokemonIDLabel: UILabel!
+    
+    
+    
+    var apiController: APIController?
+    var pokemon: Pokemon? {
+        didSet{
+           // updateViews()
+        }
+    }
     
     
     override func viewDidLoad() {
