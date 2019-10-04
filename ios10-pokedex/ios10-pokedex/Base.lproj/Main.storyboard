@@ -13,7 +13,7 @@
         <!--Pokemon Collection-->
         <scene sceneID="g8g-EP-z6Z">
             <objects>
-                <tableViewController id="uwh-cR-WuW" sceneMemberID="viewController">
+                <tableViewController id="uwh-cR-WuW" customClass="PokemonCollectionTableViewController" customModule="ios10_pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b8T-gI-6fT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

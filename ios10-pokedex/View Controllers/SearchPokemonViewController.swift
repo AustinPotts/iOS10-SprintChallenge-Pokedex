@@ -45,13 +45,13 @@ class SearchPokemonViewController: UIViewController, UISearchBarDelegate {
         idLabel.isHidden = false
         typeLabel.isHidden = false
         title = pokemon.name.capitalized
-        guard let pokemonImageData = try? Data(contentsOf: pokemon.sprite.frontDefault) else {return}
+        guard let pokemonImageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else {return}
         pokemonSpriteImage.image = UIImage(data: pokemonImageData)
         pokemonNameLabel.text = pokemon.name.capitalized
         idLabel.text = "ID: \(pokemon.id)"
         
         var types = ""
-        let typeArray = pokemon.type
+        let typeArray = pokemon.types
         
         for type in typeArray {
             types.append("Type: \(type.type.name.capitalized)")

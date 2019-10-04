@@ -25,7 +25,7 @@ class DetailsPokemonViewController: UIViewController {
     var apiController: APIController?
     var pokemon: Pokemon? {
         didSet{
-           // updateViews()
+            updateViews()
         }
     }
     
@@ -33,9 +33,33 @@ class DetailsPokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
+    
+    
+    //Create an Update Views function that will update the views UI with the Data, if Json Data is parsed correctly
+    func updateViews() {
+        guard isViewLoaded,
+            let pokemon = pokemon else{return}
+        guard let pokemonImageData = try? Data(contentsOf: pokemon.sprites.frontDefault) else {return}
+        pokemonImage.image = UIImage(data: pokemonImageData)
+        pokemonNameLabel.text = pokemon.name.capitalized
+        pokemonIDLabel.text = "ID: \(pokemon.id)"
+        title = pokemon.name
+        
+        var types = ""
+        let typeArray = pokemon.types
+        
+        for type in typeArray {
+            types.append("Type: \(type.type.name.capitalized)")
+            
+        }
+        
+        pokemonTypeLabel.text = types
+        
+    }
+
 
     /*
     // MARK: - Navigation

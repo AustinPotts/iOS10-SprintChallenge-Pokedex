@@ -12,8 +12,8 @@ import Foundation
 struct Pokemon: Decodable {
     let name: String
     let id: Int
-    let sprite: Sprites
-    let type: [Type]
+    let sprites: Sprites
+    let types: [Type]
 }
 
 //Struct needed to 'Un-Nest Pokeom Image(sprite)

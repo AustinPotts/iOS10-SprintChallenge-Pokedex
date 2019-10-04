@@ -32,7 +32,7 @@ class PokemonCollectionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath)
  
         let pokemon = apiController.pokemonCollection[indexPath.row]
-        guard let pokemonSprite = try? Data(contentsOf: pokemon.sprite.frontDefault) else {fatalError()}
+        guard let pokemonSprite = try? Data(contentsOf: pokemon.sprites.frontDefault) else {fatalError()}
         cell.imageView?.image = UIImage(data: pokemonSprite)
         cell.textLabel?.text = pokemon.name.capitalized
         
