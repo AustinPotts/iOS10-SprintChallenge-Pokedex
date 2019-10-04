@@ -7,8 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class PokemonCollectionTableViewController: UITableViewController {
+    
+    
+    //Fetch Request: This is not a good, efficient way to do this, as the fetch request
+    var pokemons: [Pokemons] {
+        let fetchRequest: NSFetchRequest<Pokemons> = Pokemons.fetchRequest()
+        
+        do {
+            let tasks = try CoreDataStack.share.mainContext.fetch(fetchRequest)
+            return tasks
+        } catch {
+            NSLog("Error fetching tasks: \(error)")
+            return []
+        }
+    }
+    
+    
 
     //Initial instance of the APIController to be passed around to other VC
     let apiController = APIController()
